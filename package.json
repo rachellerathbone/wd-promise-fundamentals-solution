@@ -1,0 +1,28 @@
+{
+  "name": "wd-promise-fundamentals",
+  "version": "0.1.0",
+  "description": "Solve puzzles to master Promise fundamentals",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "mocha"
+  },
+  "author": "Ryan Sobol <contact@ryansobol.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gSchool/wd-promise-fundamentals.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gSchool/wd-promise-fundamentals/issues"
+  },
+  "homepage": "https://github.com/gSchool/wd-promise-fundamentals#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.0.0",
+    "eslint-config-ryansobol": "^7.4.0",
+    "mocha": "^2.5.3",
+    "mock-fs": "^3.9.0",
+    "nock": "^8.0.0",
+    "request": "^2.72.0"
+  }
+}
