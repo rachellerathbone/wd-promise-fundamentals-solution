@@ -229,7 +229,7 @@ suite('pokemon form version group', () => {
       lib.getVersionsUrls(getJSON, url)
         .then((actual) => {
           // eslint-disable-next-line max-nested-callbacks
-          const urls = expected.versions.map((version) => version.urls);
+          const urls = expected.versions.map((version) => version.url);
 
           assert.deepEqual(actual, urls);
           done();
