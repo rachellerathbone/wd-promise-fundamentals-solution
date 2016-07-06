@@ -14,6 +14,18 @@ And install the necessary dependencies with NPM.
 npm install
 ```
 
+To test all the code, run the following shell command.
+
+```shell
+npm test
+```
+
+And to lint all the code, run the following shell command.
+
+```shell
+npm run lint
+```
+
 ## Part 1
 
 Follow the instructions in `lib/1_new_promise.js`. Test your code by running the following shell command.
