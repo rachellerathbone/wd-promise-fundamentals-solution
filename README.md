@@ -48,12 +48,11 @@ npm test test/4_pokemon_form_version_group.test.js
 
 ## Bonus
 
-Right now, the [`arrow-body-style`](http://eslint.org/docs/rules/arrow-body-style) ESLint rule is turned off. In the `.eslintrc.js` file, enable the rule as needed with the following configuration.
+Currently, the [`arrow-body-style` ESLint rule](http://eslint.org/docs/rules/arrow-body-style) is turned off. In the `.eslintrc.js` file, enable the rule with the following configuration.
 
 ```javascript
 'arrow-body-style': ['error', 'as-needed']
 ```
-
 
 And lint the code.
 
