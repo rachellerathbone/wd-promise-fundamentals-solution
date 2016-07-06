@@ -8,5 +8,9 @@ module.exports = {
 
   globals: {
     'beforeEach': false
+  },
+
+  rules: {
+    'arrow-body-style': ['error', 'as-needed']
   }
 };
