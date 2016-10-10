@@ -8,6 +8,7 @@ const lib = require('../lib/4_pokemon_form_version_group');
 const pokemonExpected = require('./expected/pokemon.expected');
 const pokemonFormExpected = require('./expected/pokemon_form.expected');
 const expected = require('./expected/pokemon_form_version_group.expected');
+const speciesExpected = require('./expected/pokemon_species.expected');
 const url = 'http://pokeapi.co/api/v2/pokemon/pikachu/';
 const catchMe = new Error('Catch me');
 const getError = function(_url) {
@@ -27,6 +28,10 @@ suite('pokemon form version group', () => {
     nock('http://pokeapi.co')
       .get('/api/v2/version-group/1/')
       .reply(200, expected);
+
+    nock('http://pokeapi.co')
+      .get('/api/v2/pokemon-species/25/')
+      .reply(200, speciesExpected);
   });
 
   suite('get name', () => {
@@ -241,6 +246,39 @@ suite('pokemon form version group', () => {
 
     test('rejected', (done) => {
       lib.getVersionsUrls(getError, url)
+        .then((actual) => {
+          assert.strictEqual(actual, catchMe);
+          done();
+        })
+        .catch((err) => {
+          done(err);
+        });
+    });
+  });
+
+  suite('get habitat and shape from species url', () => {
+    test('fulfilled', (done) => {
+      lib.getHabitatAndShapeFromSpeciesUrl(getJSON, url)
+        .then((actual) => {
+          // eslint-disable-next-line max-nested-callbacks
+          const obj = {
+            name: 'pikachu',
+            height: 4,
+            weight: 60,
+            habitat: speciesExpected.habitat.name,
+            shape: speciesExpected.shape.name
+          };
+
+          assert.deepEqual(actual, obj);
+          done();
+        })
+        .catch((err) => {
+          done(err);
+        });
+    });
+
+    test('rejected', (done) => {
+      lib.getHabitatAndShapeFromSpeciesUrl(getError, url)
         .then((actual) => {
           assert.strictEqual(actual, catchMe);
           done();
